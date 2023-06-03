@@ -11,10 +11,18 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
+    ["<leader>tc"] = {
+      function() require("osc52").copy_operator() end,
+      desc = "SSH copy",
+      expr = true,
+    },
+
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
@@ -24,8 +32,12 @@ return {
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
-  },  
+  },
   v = {
-    ["y"] = {"ygv<Esc>"}
+    ["<leader>tc"] = {
+      function() require("osc52").copy_visual() end,
+      desc = "SSH copy",
+    },
+    ["y"] = { "ygv<Esc>" },
   },
 }
