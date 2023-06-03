@@ -8,11 +8,15 @@ return {
     end,
   },
   {
-    "ggandor/leap.nvim", lazy = false,
-    config = function()
-      require("leap").add_default_mappings(true)
-    end,
+    "ggandor/leap.nvim",
+    lazy = false,
+    config = function() require("leap").add_default_mappings(true) end,
   },
+  {
+    "ojroques/nvim-osc52",
+    lazy = false,
+  },
+
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
   -- "andweeb/presence.nvim",
